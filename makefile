@@ -4,5 +4,5 @@ Lab5_IlichGarcia:	Lab5_IlichGarcia.o Function.o
 Lab5_IlichGarcia.o:	Lab5_IlichGarcia.cpp Function.h
 	g++ -c Lab5_IlichGarcia.cpp Function.cpp
 
-Function.o:	Function.h
+Function.o:	Function.h Function.cpp
 	g++ -c Function.cpp

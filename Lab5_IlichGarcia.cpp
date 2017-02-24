@@ -9,32 +9,33 @@ using namespace std;
 
 int main() {
 	int option;
+	vector <Function>* functions = new vector <Function>();
 
 	do {
-		int grade, coefficient;
+		int firstGrade, secondGrade, coefficient;
 
 		cout << "Ingrese grado de f(x): ";
-		cin >> grade;
+		cin >> firstGrade;
 
-		Function* firstFunction = new Function(grade); // Primera función.
+		Function firstFunction(firstGrade); // Primera función.
 
-		for (int i = 0; i <= grade; ++i) { // Creando f(x).
+		for (int i = 0; i <= firstGrade; ++i) { // Creando f(x).
 			cout << "Ingrese coeficiente de x^" << i << ": ";
 			cin >> coefficient;
-			firstFunction -> setCoefficient(coefficient);
+			firstFunction.setCoefficient(coefficient);
 		}
 
 		cout << "Ingrese grado de g(x): ";
-		cin >> grade;
+		cin >> secondGrade;
 		
-		Function* secondFunction = new Function(grade); // Segunda función.
+		Function secondFunction(secondGrade); // Segunda función.
 
 		coefficient = 0;
 
-		for (int i = 0; i <= grade; ++i) { // Creando g(x).
+		for (int i = 0; i <= secondGrade; ++i) { // Creando g(x).
 			cout << "Ingrese coeficiente de x^" << i << ": ";
 			cin >> coefficient;
-			secondFunction -> setCoefficient(coefficient);
+			secondFunction.setCoefficient(coefficient);
 		}
 
 /*		if (firstFunction -> size() >= secondFunction -> size()) {
@@ -52,11 +53,45 @@ int main() {
 		cin >> option;
 
 		if (option == 1) { // Sumar.
+			int thirdGrade;
 
+			if (firstGrade >= secondGrade) {
+				thirdGrade = firstGrade;
+			} else {
+				thirdGrade = secondGrade;
+			}
+
+			Function thirdFunction(thirdGrade);
+			thirdFunction = firstFunction + secondFunction;
+
+			for (int i = 0; i <= thirdGrade; ++i) {
+				cout << thirdFunction.getCoefficients() -> at(i);
+			}
+
+			functions -> push_back(thirdFunction);
 		} else if (option == 2) { // Restar.
-			
+			int thirdGrade;
+
+			if (firstGrade >= secondGrade) {
+				thirdGrade = firstGrade;
+			} else {
+				thirdGrade = secondGrade;
+			}
+
+			Function thirdFunction(thirdGrade);
+			thirdFunction = firstFunction - secondFunction;
+
+			for (int i = 0; i <= thirdGrade; ++i) {
+				cout << thirdFunction.getCoefficients() -> at(i);
+			}
+
+			functions -> push_back(thirdFunction);
 		} else if (option == 3) { // Multiplicar.
-			
+			if (firstFunction == secondFunction) {
+				cout << "Son iguales!";
+			} else {
+				cout << "No son iguales!";
+			}
 		} else if (option == 4) { // Dividir.
 			
 		} else if (option == 5) { // Factor común.

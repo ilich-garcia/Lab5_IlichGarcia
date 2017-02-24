@@ -11,7 +11,7 @@ using namespace std;
 class Function {
 	private:
 		int grade;
-		vector<int>* coefficients;
+		vector <int>* coefficients;
 
 	public:
 		// Constructor.
@@ -25,11 +25,11 @@ class Function {
 		// Destructor.
 		~Function();
 		// Operadores sobrecargados.
-		vector <int>* operator + (Function*); // Suma.
-		vector <int>* operator - (Function*); // Resta.
-		vector <int>* operator * (Function*); // Multiplicación.
-		vector <int>* operator / (Function*); // División.
-		vector <int>* operator ^ (Function*); // Factor común.
-		vector <int>* operator == (Function*); // Iguales.
-		vector <int>* operator != (Function*); // Diferentes.
+		Function operator + (Function); // Suma.
+		Function operator - (Function); // Resta.
+		Function operator * (Function); // Multiplicación.
+		Function operator / (Function); // División.
+		Function operator ^ (Function); // Factor común.
+		bool operator == (Function); // Iguales.
+		bool operator != (Function); // Diferentes.
 };
