@@ -9,6 +9,7 @@
 using namespace std;
 
 class Function {
+	friend ostream& operator << (ostream&, const Function); // Operador de flujo.
 	private:
 		int grade;
 		vector <int>* coefficients;
@@ -29,7 +30,8 @@ class Function {
 		Function operator - (Function); // Resta.
 		Function operator * (Function); // Multiplicación.
 		Function operator / (Function); // División.
-		Function operator ^ (Function); // Factor común.
+		int operator () (); // Factor común.
 		bool operator == (Function); // Iguales.
 		bool operator != (Function); // Diferentes.
+		string toString()const;
 };

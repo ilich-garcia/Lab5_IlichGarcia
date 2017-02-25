@@ -38,14 +38,6 @@ int main() {
 			secondFunction.setCoefficient(coefficient);
 		}
 
-/*		if (firstFunction -> size() >= secondFunction -> size()) {
-			grade = firstFunction -> size();
-			int aux = secondFunction -> size();
-
-			for (int i = 0; i <= grade; ++i) {
-			}
-		}
-*/
 		cout << "1) Sumar. \n2) Restar. \n3) Multiplicar. \n4) Dividir. ";
 		cout << "\n5) Sacar factor común. \n6) Evaluar si dos funciones son iguales";
 		cout << "\n7) Evaluar si dos funciones son diferentes. \n8) Operador de flujo de salida.";
@@ -65,8 +57,16 @@ int main() {
 			thirdFunction = firstFunction + secondFunction;
 
 			for (int i = 0; i <= thirdGrade; ++i) {
-				cout << thirdFunction.getCoefficients() -> at(i);
+				if (thirdFunction.getCoefficients() -> at(i) > 0 && i != 0) {
+					cout << "+" << thirdFunction.getCoefficients() -> at(i) << "x^" << i;
+				} else if (thirdFunction.getCoefficients() -> at(i) < 0) {
+					cout << thirdFunction.getCoefficients() -> at(i) << "x^" << i;
+				} else {
+					cout << "+" << thirdFunction.getCoefficients() -> at(i) << "x^" << i;
+				}
 			}
+
+			cout << "\n";
 
 			functions -> push_back(thirdFunction);
 		} else if (option == 2) { // Restar.
@@ -82,26 +82,46 @@ int main() {
 			thirdFunction = firstFunction - secondFunction;
 
 			for (int i = 0; i <= thirdGrade; ++i) {
-				cout << thirdFunction.getCoefficients() -> at(i);
+				if (thirdFunction.getCoefficients() -> at(i) > 0 && i != 0) {
+					cout << "+" << thirdFunction.getCoefficients() -> at(i) << "x^" << i;
+				}else if (thirdFunction.getCoefficients() -> at(i) < 0) {
+					cout << thirdFunction.getCoefficients() -> at(i) << "x^" << i;
+				} else {
+					cout << "+" << thirdFunction.getCoefficients() -> at(i) << "x^" << i;
+				}
 			}
+
+			cout << "\n";
 
 			functions -> push_back(thirdFunction);
 		} else if (option == 3) { // Multiplicar.
+
+		} else if (option == 4) { // Dividir.
+			
+		} else if (option == 5) { // Factor común.
+			int number;
+
+			number = firstFunction();
+
+			for (int i = 0; i < firstFunction.getCoefficients() -> size(); ++i) {
+				firstFunction.getCoefficients() -> at(i) = firstFunction.getCoefficients() -> at(i) / number;
+			}
+
+			cout << firstFunction;
+		} else if (option == 6) { // Iguales.
 			if (firstFunction == secondFunction) {
 				cout << "Son iguales!";
 			} else {
 				cout << "No son iguales!";
 			}
-		} else if (option == 4) { // Dividir.
-			
-		} else if (option == 5) { // Factor común.
-			
-		} else if (option == 6) { // Iguales.
-			
 		} else if (option == 7) { // Diferentes.
-			
+			if (firstFunction != secondFunction) {
+				cout << "Son iguales!";
+			} else {
+				cout << "No son iguales!";
+			}
 		} else if (option == 8) { // Operador de flujo.
-			
+			cout << "Primera función, punchis punchis (your tween c:): " << firstFunction;
 		}
 	} while (option != 9);
 
