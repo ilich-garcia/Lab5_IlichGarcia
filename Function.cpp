@@ -88,7 +88,27 @@ Function Function::operator - (Function function) { // Resta.
 }
 
 Function Function::operator * (Function function) { // Multiplicación.
+	int firstGrade, secondGrade, thirdGrade;
 
+	firstGrade = this -> getCoefficients() -> size();
+	secondGrade = function.	getCoefficients() -> size();
+
+	if (firstGrade >= secondGrade) {
+		thirdGrade = firstGrade;
+	} else {
+		thirdGrade = secondGrade;
+	}
+
+	int size = thirdGrade * thirdGrade;
+	Function newFunction(size);
+
+	for (int i = 0; i < this -> coefficients -> size(); ++i) {
+		for (int j = 0; j < this -> coefficients -> size(); ++j) {
+			newFunction.setCoefficient(this -> coefficients -> at(i) * function.getCoefficients() -> at(j));
+		}
+	}
+
+	return newFunction;
 }
 
 Function Function::operator / (Function function) { // División.

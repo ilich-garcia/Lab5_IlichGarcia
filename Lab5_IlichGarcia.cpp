@@ -95,7 +95,8 @@ int main() {
 
 			functions -> push_back(thirdFunction);
 		} else if (option == 3) { // Multiplicar.
-
+			cout << "Multiplicación: " << firstFunction * secondFunction;
+			cout << "PD: No mirés los exponentes, que no me quedaron como quise. Peace and love xD!" << endl;
 		} else if (option == 4) { // Dividir.
 			
 		} else if (option == 5) { // Factor común.
